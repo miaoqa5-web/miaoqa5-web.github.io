@@ -20,17 +20,19 @@
     var CONFIG = {"hostname":"miaoqa5-web.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="这是主页之前的方法老失败，试试新方法。">
+  <meta name="description" content=".hero {   background-image: url(&#39;&#x2F;images&#x2F;banner.jpg&#39;);   background-size: cover;   background-position: center;   padding: 200px 0;   display: flex;   justify-content: center;   align-items: center;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Home">
+<meta property="og:title" content="Welcome">
 <meta property="og:url" content="https://miaoqa5-web.github.io/index/index.html">
 <meta property="og:site_name" content="Miao QA">
-<meta property="og:description" content="这是主页之前的方法老失败，试试新方法。">
+<meta property="og:description" content=".hero {   background-image: url(&#39;&#x2F;images&#x2F;banner.jpg&#39;);   background-size: cover;   background-position: center;   padding: 200px 0;   display: flex;   justify-content: center;   align-items: center;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-12-04T10:14:04.791Z">
-<meta property="article:modified_time" content="2025-12-04T10:14:04.791Z">
+<meta property="og:image" content="https://miaoqa5-web.github.io/images/avatar.png">
+<meta property="article:published_time" content="2025-12-04T10:38:06.294Z">
+<meta property="article:modified_time" content="2025-12-04T10:38:06.294Z">
 <meta property="article:author" content="Miao QA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miaoqa5-web.github.io/images/avatar.png">
 
 <link rel="canonical" href="https://miaoqa5-web.github.io/index/">
 
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>Home | Miao QA
+  <title>Welcome | Miao QA
 </title>
   
 
@@ -165,7 +167,7 @@
     <div class="post-block" lang="en">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Home
+<h1 class="post-title" itemprop="name headline">Welcome
 </h1>
 
 <div class="post-meta">
@@ -179,8 +181,52 @@
       
       
       <div class="post-body">
-          <p>这是主页<br>之前的方法老失败，试试新方法。</p>
+          <style>
+.hero {
+  background-image: url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.card {
+  background: rgba(255,255,255,0.85);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  backdrop-filter: blur(5px);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.social a {
+  margin: 0 10px;
+  font-size: 24px;
+}
+</style>
+
+<div class="hero">
+  <div class="card">
+    <img class="avatar" src="/images/avatar.png">
+
+<pre><code>&lt;h2&gt;Qian Miao&lt;/h2&gt;
+&lt;p&gt;Writer · Radio Host · Music Lover&lt;/p&gt;
+
+&lt;div class=&quot;social&quot;&gt;
+  &lt;a href=&quot;https://github.com/miaoqa5-web&quot;&gt;&lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;a href=&quot;mailto:xxxx@example.com&quot;&gt;&lt;i class=&quot;far fa-envelope&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
       </div>
       
       
