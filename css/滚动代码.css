@@ -1,0 +1,13 @@
+/* 万能代码块滚动样式（强制生效） */
+pre, .pre, .code-block, .highlight, .code-snippet {
+  max-height: 300px !important; /* 限制最大高度，按需改 */
+  overflow-y: auto !important; /* 纵向滚动 */
+  overflow-x: auto !important; /* 横向滚动（防代码过长） */
+  height: auto !important; /* 避免固定高度导致短代码块也占满空间 */
+}
+
+/* 确保代码块内的 code 标签不影响滚动 */
+pre code, .code-block code, .highlight code {
+  display: block !important;
+  max-height: none !important; /* 取消 code 标签的高度限制 */
+}
