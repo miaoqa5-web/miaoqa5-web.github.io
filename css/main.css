@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0f3358;
+  background: #1b11de;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2503,4 +2503,60 @@ a {
 }
 .posts-expand .post-title-link::before {
   display: none;
+}
+/* 全站淡入动画 */
+body {
+  animation: fadeIn 1s ease-in;
+}
+/* 卡片悬浮放大 */
+.post-block,
+.card {
+  transition: 0.3s ease;
+}
+.post-block:hover,
+.card:hover {
+  transform: translateY(-5px);
+}
+/* 导航栏悬浮效果 */
+.menu-item a {
+  transition: 0.3s;
+}
+.menu-item a:hover {
+  letter-spacing: 2px;
+}
+/* 页面整体字体优化 */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

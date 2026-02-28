@@ -20,19 +20,24 @@
     var CONFIG = {"hostname":"miaoqa5-web.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="我编写的关于如何写作电台自由音乐节目（乐评）的指南。                 若无法预览，请 点击这里下载。">
+  <meta name="description" content="body {   background: #0f0f0f; }  .vinyl-wrapper {   display: flex;   justify-content: center;   align-items: center;   gap: 100px;   margin-top: 120px;   flex-wrap: wrap; }  &#x2F;* 黑胶唱片主体 *&#x2F; .vinyl {   p">
 <meta property="og:type" content="website">
-<meta property="og:title" content="自由音乐制作指南">
-<meta property="og:url" content="https://miaoqa5-web.github.io/production-guide/index.html">
+<meta property="og:title" content="唱片收藏">
+<meta property="og:url" content="https://miaoqa5-web.github.io/music/collection/index.html">
 <meta property="og:site_name" content="Miao QA">
-<meta property="og:description" content="我编写的关于如何写作电台自由音乐节目（乐评）的指南。                 若无法预览，请 点击这里下载。">
+<meta property="og:description" content="body {   background: #0f0f0f; }  .vinyl-wrapper {   display: flex;   justify-content: center;   align-items: center;   gap: 100px;   margin-top: 120px;   flex-wrap: wrap; }  &#x2F;* 黑胶唱片主体 *&#x2F; .vinyl {   p">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-12-04T16:54:32.777Z">
-<meta property="article:modified_time" content="2025-12-04T16:54:32.777Z">
+<meta property="og:image" content="https://miaoqa5-web.github.io/images/divorce.jpg">
+<meta property="og:image" content="https://miaoqa5-web.github.io/images/album2.jpg">
+<meta property="og:image" content="https://miaoqa5-web.github.io/images/album3.jpg">
+<meta property="og:image" content="https://miaoqa5-web.github.io/images/album4.jpg">
+<meta property="article:published_time" content="2026-02-28T06:20:18.455Z">
+<meta property="article:modified_time" content="2026-02-28T06:20:18.455Z">
 <meta property="article:author" content="Miao QA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miaoqa5-web.github.io/images/divorce.jpg">
 
-<link rel="canonical" href="https://miaoqa5-web.github.io/production-guide/">
+<link rel="canonical" href="https://miaoqa5-web.github.io/music/collection/">
 
 
 <script id="page-configurations">
@@ -45,7 +50,7 @@
   };
 </script>
 
-  <title>自由音乐制作指南 | Miao QA
+  <title>唱片收藏 | Miao QA
 </title>
   
 
@@ -176,11 +181,17 @@
     <div class="post-block" lang="en">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">自由音乐制作指南
+<h1 class="post-title" itemprop="name headline">唱片收藏
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/music/">MUSIC</a></li>
+          <li>COLLECTION</li>
+        
+  </ul>
 
 </div>
 
@@ -190,23 +201,119 @@
       
       
       <div class="post-body">
-          <p>我编写的关于如何写作电台自由音乐节目（乐评）的指南。</p>
-<!-- PDF 阅读器开始 -->
-<div style="width: 100%; height: 800px;">
-    <iframe src="/downloads/guide.pdf" width="100%" height="100%" style="border: none;">
-    </iframe>
+          <style>
+body {
+  background: #0f0f0f;
+}
+
+.vinyl-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 120px;
+  flex-wrap: wrap;
+}
+
+/* 黑胶唱片主体 */
+.vinyl {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+      #111 0%,
+      #000 40%,
+      #111 60%,
+      #000 100%);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  animation: spin 8s linear infinite;
+  transition: transform 0.4s ease;
+}
+
+/* 封面图片 */
+.vinyl img {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* 中心小圆 */
+.vinyl::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #111;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* hover 放大 + 加速 */
+.vinyl:hover {
+  transform: scale(1.2);
+  animation-duration: 2s;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+a {
+  text-decoration: none;
+}
+</style>
+
+<div class="vinyl-wrapper">
+
+  <a href="/divorce-album/">
+    <div class="vinyl">
+      <img src="/images/divorce.jpg">
+    </div>
+  </a>
+
+  <a href="/album2/">
+    <div class="vinyl">
+      <img src="/images/album2.jpg">
+    </div>
+  </a>
+
+  <a href="/album3/">
+    <div class="vinyl">
+      <img src="/images/album3.jpg">
+    </div>
+  </a>
+
+  <a href="/album4/">
+    <div class="vinyl">
+      <img src="/images/album4.jpg">
+    </div>
+  </a>
+
 </div>
-
-
-
-<p>若无法预览，请 <a href="/downloads/guide.pdf">点击这里下载</a>。</p>
-
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/music/">MUSIC</a></li>
+          <li>COLLECTION</li>
+        
+  </ul>
 
     
     
