@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans SC:300,300italic,400,400italic,700,700italic|Newsreader:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="true">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"miaoqa5-web.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="## 一、CSS 核心概念 1. CSS 定义：层叠样式表（Cascading Style Sheets），用于控制HTML文档的呈现样式（外观、布局、行为），实现结构（HTML）与样式（CSS）分离。 2. 核心作用： &nbsp;  - 美化网页：设置颜色、字体、间距、背景等视觉样式 &nbsp;  - 布局控制：实现元素的排列、定位、响应式适配 &nbsp;  - 交互增强：配合伪类&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 基础知识">
+<meta property="og:url" content="https://miaoqa5-web.github.io/2026/02/28/css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Miao QA">
+<meta property="og:description" content="## 一、CSS 核心概念 1. CSS 定义：层叠样式表（Cascading Style Sheets），用于控制HTML文档的呈现样式（外观、布局、行为），实现结构（HTML）与样式（CSS）分离。 2. 核心作用： &nbsp;  - 美化网页：设置颜色、字体、间距、背景等视觉样式 &nbsp;  - 布局控制：实现元素的排列、定位、响应式适配 &nbsp;  - 交互增强：配合伪类&amp;#x2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-28T07:50:00.000Z">
+<meta property="article:modified_time" content="2026-02-28T07:57:14.899Z">
+<meta property="article:author" content="Miao QA">
+<meta property="article:tag" content="\[前端开发, CSS, 学习笔记]">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://miaoqa5-web.github.io/2026/02/28/css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSS 基础知识 | Miao QA</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Miao QA</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-projects">
+
+    <a href="/projects/" rel="section"><i class="fa fa-code fa-fw"></i>Projects</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music/" rel="section"><i class="fa fa-music fa-fw"></i>Music</a>
+
+  </li>
+        <li class="menu-item menu-item-progress">
+
+    <a href="/progress/" rel="section"><i class="fa fa-chart-bar fa-fw"></i>progress</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://miaoqa5-web.github.io/2026/02/28/css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Miao QA">
+      <meta itemprop="description" content="Building my digital garden.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miao QA">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS 基础知识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2026-02-28 15:50:00 / Modified: 15:57:14" itemprop="dateCreated datePublished" datetime="2026-02-28T15:50:00+08:00">2026-02-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>## 一、CSS 核心概念</p>
+<p>1. CSS 定义：层叠样式表（Cascading Style Sheets），用于控制HTML文档的呈现样式（外观、布局、行为），实现结构（HTML）与样式（CSS）分离。</p>
+<p>2. 核心作用：</p>
+<p>&nbsp;  - 美化网页：设置颜色、字体、间距、背景等视觉样式</p>
+<p>&nbsp;  - 布局控制：实现元素的排列、定位、响应式适配</p>
+<p>&nbsp;  - 交互增强：配合伪类&#x2F;伪元素实现基础交互效果</p>
+<p>3. CSS 版本：</p>
+<p>&nbsp;  - CSS1：基础样式（字体、颜色、边距）</p>
+<p>&nbsp;  - CSS2：引入浮动、定位、媒体查询、伪类</p>
+<p>&nbsp;  - CSS3：模块化升级（圆角、阴影、渐变、动画、弹性盒、网格布局），目前主流使用CSS3特性</p>
+<p>## 二、CSS 引入方式</p>
+<p>### 1. 行内样式（内联样式）</p>
+<p>- 语法：直接在HTML标签的style属性中编写CSS</p>
+<p>- 示例：<code>&lt;div style=&quot;width: 100px; height: 100px; background: red;&quot;&gt;&lt;/div&gt;</code></p>
+<p>- 特点：优先级最高，仅作用于当前标签，不利于维护，仅临时调试使用</p>
+<p>### 2. 内部样式（嵌入式）</p>
+<p>- 语法：在HTML的<code>&lt;head&gt;</code>标签内通过<code>&lt;style&gt;</code>标签编写CSS</p>
+<p>- 特点：仅作用于当前HTML文件，适合单页面样式管理</p>
+<p>### 3. 外部样式（链接式）</p>
+<p>- 语法：通过<code>&lt;link&gt;</code>标签引入外部.css文件</p>
+<p>- 示例：<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></p>
+<p>- 特点：可复用，利于多页面样式统一管理，是项目开发的主流方式</p>
+<p>- 补充：还可通过<code>@import</code>引入（如<code>@import url(&quot;style.css&quot;);</code>），但优先级低于<code>&lt;link&gt;</code>，加载性能稍差</p>
+<p>## 三、CSS 基本语法</p>
+<p>1. 语法结构：选择器 + 声明块</p>
+<p>&nbsp;  - 选择器：指定要样式化的HTML元素</p>
+<p>&nbsp;  - 声明块：由<code>{}</code>包裹，内部是多个声明（属性: 值;）</p>
+<p>2. 语法规则：</p>
+<p>&nbsp;  - 声明必须以<code>;</code>结尾（最后一个声明可省略，但建议统一添加）</p>
+<p>&nbsp;  - 属性与值之间用<code>:</code>分隔</p>
+<p>&nbsp;  - 大小写不敏感，但建议属性小写、值按规范（如颜色值）</p>
+<p>&nbsp;  - 注释：单行&#x2F;多行均用<code>/\* 注释内容 \*/</code>（无&#x2F;&#x2F;注释）</p>
+<p>## 四、CSS 选择器（核心）</p>
+<p>### 1. 基础选择器</p>
+<p>- 标签选择器：匹配指定标签名的所有元素</p>
+<p>&nbsp; 语法：标签名 { … }</p>
+<p>&nbsp; 示例：<code>p { color: black; }</code>（所有<p>标签文字黑色）</p>
+<p>- 类选择器：匹配指定class属性的元素</p>
+<p>&nbsp; 语法：.类名 { … }</p>
+<p>&nbsp; 示例：<code>.box { width: 100px; }</code>（所有class&#x3D;”box”的元素宽度100px）</p>
+<p>&nbsp; 补充：一个元素可拥有多个类，如<code>&lt;div class=&quot;box red&quot;&gt;&lt;/div&gt;</code></p>
+<p>- ID选择器：匹配指定id属性的元素（页面唯一）</p>
+<p>&nbsp; 语法：#id名 { … }</p>
+<p>&nbsp; 示例：<code>#header { height: 80px; }</code>（id&#x3D;”header”的元素高度80px）</p>
+<p>- 通配符选择器：匹配所有元素</p>
+<p>&nbsp; 语法：* { … }</p>
+<p>&nbsp; 示例：<code>\* { margin: 0; padding: 0; }</code>（清除所有元素的默认边距）</p>
+<p>&nbsp; 注意：性能较差，尽量少用</p>
+<p>### 2. 复合选择器</p>
+<p>- 后代选择器：匹配指定元素的所有后代元素（包含子、孙等）</p>
+<p>&nbsp; 语法：选择器1 选择器2 { … }</p>
+<p>&nbsp; 示例：<code>ul li { list-style: none; }</code>（ul下所有li去掉列表样式）</p>
+<p>- 子选择器：仅匹配指定元素的直接子元素</p>
+<p>&nbsp; 语法：选择器1 &gt; 选择器2 { … }</p>
+<p>&nbsp; 示例：<code>ul &gt; li { color: blue; }</code>（仅ul直接子li文字蓝色，孙li不生效）</p>
+<p>- 并集选择器：匹配多个选择器的元素</p>
+<p>&nbsp; 语法：选择器1, 选择器2 { … }</p>
+<p>&nbsp; 示例：<code>h1, h2, p { margin: 10px 0; }</code>（h1、h2、p都设置上下边距）</p>
+<p>- 交集选择器：匹配同时满足多个选择器的元素</p>
+<p>&nbsp; 语法：选择器1选择器2 { … }（无空格）</p>
+<p>&nbsp; 示例：<code>p.red { color: red; }</code>（class&#x3D;”red”的p标签文字红色）</p>
+<p>- 相邻兄弟选择器：匹配指定元素的下一个相邻兄弟元素</p>
+<p>&nbsp; 语法：选择器1 + 选择器2 { … }</p>
+<p>&nbsp; 示例：<code>h1 + p { font-size: 16px; }</code>（h1紧跟的第一个p标签字号16px）</p>
+<p>- 通用兄弟选择器：匹配指定元素的所有后续兄弟元素</p>
+<p>&nbsp; 语法：选择器1 ~ 选择器2 { … }</p>
+<p>&nbsp; 示例：<code>h1 ~ p { color: gray; }</code>（h1之后所有同级p标签文字灰色）</p>
+<p>### 3. 属性选择器</p>
+<p>- 匹配拥有指定属性的元素：<code>\[attr] { ... }</code></p>
+<p>&nbsp; 示例：<code>\[title] { cursor: pointer; }</code>（有title属性的元素鼠标变指针）</p>
+<p>- 匹配属性等于指定值的元素：<code>\[attr=value] { ... }</code></p>
+<p>&nbsp; 示例：<code>input\[type=&quot;text&quot;] { border: 1px solid #ccc; }</code>（type为text的input边框样式）</p>
+<p>- 匹配属性以指定值开头的元素：<code>\[attr^=value] { ... }</code></p>
+<p>&nbsp; 示例：<code>a\[href^=&quot;http&quot;] { color: blue; }</code>（href以http开头的a标签蓝色）</p>
+<p>- 匹配属性以指定值结尾的元素：<code>\[attr$=value] { ... }</code></p>
+<p>&nbsp; 示例：<code>a\[href$=&quot;.pdf&quot;] { color: red; }</code>（href以.pdf结尾的a标签红色）</p>
+<p>- 匹配属性包含指定值的元素：<code>\[attr\*=value] { ... }</code></p>
+<p>&nbsp; 示例：<code>a\[href\*=&quot;baidu&quot;] { font-weight: bold; }</code>（href包含baidu的a标签加粗）</p>
+<p>### 4. 伪类选择器（状态选择器）</p>
+<p>- 链接伪类（需按顺序：LVHA）：</p>
+<p>&nbsp; - <code>:link</code>：未访问的链接</p>
+<p>&nbsp; - <code>:visited</code>：已访问的链接</p>
+<p>&nbsp; - <code>:hover</code>：鼠标悬停在元素上</p>
+<p>&nbsp; - <code>:active</code>：元素被激活（点击时）</p>
+<p>&nbsp; 示例：<code>a:hover { color: orange; }</code>（鼠标悬停链接变橙色）</p>
+<p>- 表单伪类：</p>
+<p>&nbsp; - <code>:focus</code>：元素获得焦点（如input输入时）</p>
+<p>&nbsp; - <code>:enabled</code>：可用的表单元素</p>
+<p>&nbsp; - <code>:disabled</code>：禁用的表单元素</p>
+<p>&nbsp; - <code>:checked</code>：选中的单选&#x2F;复选框</p>
+<p>&nbsp; 示例：<code>input:focus { outline: none; border: 1px solid blue; }</code>（input获焦时去掉默认轮廓，边框变蓝）</p>
+<p>- 结构伪类：</p>
+<p>&nbsp; - <code>:first-child</code>：父元素的第一个子元素</p>
+<p>&nbsp; - <code>:last-child</code>：父元素的最后一个子元素</p>
+<p>&nbsp; - <code>:nth-child(n)</code>：父元素的第n个子元素（n可为数字、odd&#x2F;even、公式如2n）</p>
+<p>&nbsp; - <code>:first-of-type</code>：父元素中指定类型的第一个元素</p>
+<p>&nbsp; - <code>:last-of-type</code>：父元素中指定类型的最后一个元素</p>
+<p>&nbsp; - <code>:nth-of-type(n)</code>：父元素中指定类型的第n个元素</p>
+<p>&nbsp; 示例：<code>ul li:nth-child(odd) { background: #f5f5f5; }</code>（ul下奇数行li背景灰色）</p>
+<p>- 其他伪类：</p>
+<p>&nbsp; - <code>:not(选择器)</code>：排除指定选择器的元素</p>
+<p>&nbsp; 示例：<code>li:not(.active) { color: #666; }</code>（排除class&#x3D;active的li，其余文字灰色）</p>
+<p>### 5. 伪元素选择器（创建虚拟元素）</p>
+<p>- <code>::before</code>：在元素内容前插入虚拟内容</p>
+<p>- <code>::after</code>：在元素内容后插入虚拟内容</p>
+<p>- <code>::first-letter</code>：匹配文本的第一个字符</p>
+<p>- <code>::first-line</code>：匹配文本的第一行</p>
+<p>- 注意：伪元素必须配合<code>content</code>属性使用（空内容用content: “”）</p>
+<p>&nbsp; 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .box::before {</p>
+<p>&nbsp;   content: “前缀：”;</p>
+<p>&nbsp;   color: red;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .text::first-line {</p>
+<p>&nbsp;   font-size: 18px;</p>
+<p>&nbsp;   font-weight: bold;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>### 6. 选择器优先级</p>
+<p>- 优先级规则（从高到低）：</p>
+<p>&nbsp; 1. !important（最高，慎用）</p>
+<p>&nbsp; 2. 行内样式（style属性）</p>
+<p>&nbsp; 3. ID选择器（#id）</p>
+<p>&nbsp; 4. 类选择器（.class）、属性选择器、伪类选择器</p>
+<p>&nbsp; 5. 标签选择器、伪元素选择器</p>
+<p>&nbsp; 6. 通配符选择器（*）、继承的样式</p>
+<p>- 优先级计算（权重值）：</p>
+<p>&nbsp; - 行内样式：1,0,0,0</p>
+<p>&nbsp; - ID选择器：0,1,0,0</p>
+<p>&nbsp; - 类&#x2F;属性&#x2F;伪类：0,0,1,0</p>
+<p>&nbsp; - 标签&#x2F;伪元素：0,0,0,1</p>
+<p>&nbsp; - 通配符：0,0,0,0</p>
+<p>&nbsp; - 示例：<code>#header .nav li</code> 权重为 0,1,1,1；<code>div.box</code> 权重为 0,0,1,1</p>
+<p>- 层叠规则：优先级高的样式覆盖低的；优先级相同则后写的样式覆盖先写的</p>
+<p>## 五、CSS 常用样式属性</p>
+<p>### 1. 字体样式（Font）</p>
+<p>- <code>font-family</code>：字体家族（多个字体用,分隔，最后写通用字体）</p>
+<p>&nbsp; 示例：<code>font-family: &quot;Microsoft Yahei&quot;, Arial, sans-serif;</code></p>
+<p>- <code>font-size</code>：字体大小（单位：px&#x2F;em&#x2F;rem&#x2F;%）</p>
+<p>&nbsp; 示例：<code>font-size: 16px;</code>（默认16px）</p>
+<p>- <code>font-weight</code>：字体粗细（normal&#x2F;400、bold&#x2F;700、100-900）</p>
+<p>&nbsp; 示例：<code>font-weight: 600;</code></p>
+<p>- <code>font-style</code>：字体样式（normal&#x2F;italic&#x2F;oblique）</p>
+<p>&nbsp; 示例：<code>font-style: italic;</code>（斜体）</p>
+<p>- <code>font</code>：复合属性（顺序：style weight size family）</p>
+<p>&nbsp; 示例：<code>font: italic bold 16px &quot;Microsoft Yahei&quot;;</code></p>
+<p>### 2. 文本样式（Text）</p>
+<p>- <code>color</code>：文本颜色（十六进制#fff、rgb(255,255,255)、rgba(255,255,255,0.5)、英文red）</p>
+<p>- <code>text-align</code>：文本对齐（left&#x2F;center&#x2F;right&#x2F;justify）</p>
+<p>- <code>text-decoration</code>：文本装饰（none&#x2F;underline&#x2F;overline&#x2F;line-through）</p>
+<p>&nbsp; 示例：<code>a { text-decoration: none; }</code>（去掉链接下划线）</p>
+<p>- <code>text-indent</code>：文本缩进（单位：px&#x2F;em）</p>
+<p>&nbsp; 示例：<code>p { text-indent: 2em; }</code>（首行缩进2字符）</p>
+<p>- <code>line-height</code>：行高（单位：px&#x2F;em&#x2F;无单位、%）</p>
+<p>&nbsp; 示例：<code>p { line-height: 1.5; }</code>（行高为字号的1.5倍，推荐无单位）</p>
+<p>- <code>letter-spacing</code>：字符间距</p>
+<p>- <code>word-spacing</code>：单词间距（针对英文）</p>
+<p>- <code>text-transform</code>：文本大小写（none&#x2F;uppercase&#x2F;lowercase&#x2F;capitalize）</p>
+<p>- <code>white-space</code>：空白处理（normal&#x2F;nowrap&#x2F;pre）</p>
+<p>&nbsp; 示例：<code>div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }</code>（文本超出省略）</p>
+<p>- <code>text-overflow</code>：文本溢出处理（clip&#x2F;ellipsis）</p>
+<p>### 3. 背景样式（Background）</p>
+<p>- <code>background-color</code>：背景颜色</p>
+<p>- <code>background-image</code>：背景图片</p>
+<p>&nbsp; 示例：<code>background-image: url(&quot;bg.jpg&quot;);</code></p>
+<p>- <code>background-repeat</code>：背景重复（repeat&#x2F;repeat-x&#x2F;repeat-y&#x2F;no-repeat）</p>
+<p>- <code>background-position</code>：背景位置（x y，可填像素、百分比、方位词left&#x2F;center&#x2F;right top&#x2F;center&#x2F;bottom）</p>
+<p>&nbsp; 示例：<code>background-position: center top;</code></p>
+<p>- <code>background-size</code>：背景尺寸（auto&#x2F;cover&#x2F;contain&#x2F;具体值）</p>
+<p>&nbsp; 示例：<code>background-size: cover;</code>（覆盖容器，可能裁剪）</p>
+<p>- <code>background-attachment</code>：背景固定（scroll&#x2F;fixed）</p>
+<p>- <code>background</code>：复合属性（顺序：color image repeat position size attachment）</p>
+<p>&nbsp; 示例：<code>background: #f5f5f5 url(&quot;bg.jpg&quot;) no-repeat center/cover fixed;</code></p>
+<p>### 4. 盒模型（核心）</p>
+<p>- 盒模型组成（从内到外）：content → padding → border → margin</p>
+<p>- <code>width/height</code>：默认指内容区宽度&#x2F;高度（可通过box-sizing修改）</p>
+<p>- <code>padding</code>：内边距（元素内容与边框的距离）</p>
+<p>&nbsp; 语法：padding: 上 右 下 左；padding-top&#x2F;padding-right&#x2F;padding-bottom&#x2F;padding-left</p>
+<p>&nbsp; 示例：<code>padding: 10px 20px;</code>（上下10px，左右20px）</p>
+<p>- <code>border</code>：边框（复合属性：width style color）</p>
+<p>&nbsp; 语法：border: 1px solid #ccc;</p>
+<p>&nbsp; 细分：border-width&#x2F;border-style（solid&#x2F;dashed&#x2F;dotted&#x2F;double）&#x2F;border-color</p>
+<p>&nbsp; 单边：border-top: 1px solid red;</p>
+<p>- <code>margin</code>：外边距（元素与其他元素的距离）</p>
+<p>&nbsp; 语法：同padding，margin-top&#x2F;margin-right&#x2F;margin-bottom&#x2F;margin-left</p>
+<p>&nbsp; 注意：垂直方向margin会重叠（塌陷），水平方向不会；margin: 0 auto可实现块级元素水平居中</p>
+<p>- <code>box-sizing</code>：盒模型类型</p>
+<p>&nbsp; - content-box（默认）：width&#x2F;height仅包含content</p>
+<p>&nbsp; - border-box：width&#x2F;height包含content+padding+border（推荐，方便布局）</p>
+<p>&nbsp; 示例：<code>\* { box-sizing: border-box; }</code></p>
+<p>- <code>display</code>：元素显示类型</p>
+<p>&nbsp; - block：块级元素（独占一行，可设宽高，如div&#x2F;h1&#x2F;p）</p>
+<p>&nbsp; - inline：行内元素（不独占一行，不可设宽高，如span&#x2F;a&#x2F;em）</p>
+<p>&nbsp; - inline-block：行内块元素（不独占一行，可设宽高，如img&#x2F;input）</p>
+<p>&nbsp; - none：隐藏元素（不占位置）</p>
+<p>&nbsp; - flex：弹性盒容器</p>
+<p>&nbsp; - grid：网格容器</p>
+<p>- <code>visibility</code>：可见性（visible&#x2F;hidden，hidden时元素仍占位置）</p>
+<p>- <code>overflow</code>：内容溢出处理</p>
+<p>&nbsp; - visible：默认，溢出显示</p>
+<p>&nbsp; - hidden：溢出隐藏</p>
+<p>&nbsp; - scroll：显示滚动条（无论是否溢出）</p>
+<p>&nbsp; - auto：溢出时显示滚动条</p>
+<p>### 5. 定位（Position）</p>
+<p>- <code>position</code>：定位类型</p>
+<p>&nbsp; - static：默认，无定位（不配合top&#x2F;right&#x2F;bottom&#x2F;left使用）</p>
+<p>&nbsp; - relative：相对定位（相对于自身原位置偏移，仍占原位置）</p>
+<p>&nbsp; - absolute：绝对定位（相对于最近的已定位祖先元素偏移，不占原位置）</p>
+<p>&nbsp; - fixed：固定定位（相对于浏览器视口偏移，不占原位置，滚动时位置不变）</p>
+<p>&nbsp; - sticky：粘性定位（滚动到指定位置时从relative变为fixed）</p>
+<p>- 偏移属性：top&#x2F;right&#x2F;bottom&#x2F;left（配合定位使用，单位px&#x2F;%）</p>
+<p>- <code>z-index</code>：层级（数值越大层级越高，仅对定位元素生效）</p>
+<p>&nbsp; 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .box {</p>
+<p>&nbsp;   position: relative;</p>
+<p>&nbsp;   top: 10px;</p>
+<p>&nbsp;   left: 20px;</p>
+<p>&nbsp;   z-index: 10;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .popup {</p>
+<p>&nbsp;   position: absolute;</p>
+<p>&nbsp;   top: 50%;</p>
+<p>&nbsp;   left: 50%;</p>
+<p>&nbsp;   transform: translate(-50%, -50%); &#x2F;* 居中 *&#x2F;</p>
+<p>&nbsp;   z-index: 100;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>### 6. 浮动（Float）</p>
+<p>- <code>float</code>：浮动方向（left&#x2F;right&#x2F;none）</p>
+<p>- 作用：让块级元素并排显示（早期布局核心）</p>
+<p>- 清除浮动（解决父元素高度塌陷）：</p>
+<p>&nbsp; 方法1：父元素添加<code>overflow: hidden;</code></p>
+<p>&nbsp; 方法2：在浮动元素后加空标签，设置<code>clear: both;</code></p>
+<p>&nbsp; 方法3：伪元素清除（推荐）：</p>
+<p>&nbsp;   &#96;&#96;&#96;</p>
+<p>&nbsp;   .clearfix::after {</p>
+<p>&nbsp;     content: “”;</p>
+<p>&nbsp;     display: block;</p>
+<p>&nbsp;     clear: both;</p>
+<p>&nbsp;     visibility: hidden;</p>
+<p>&nbsp;     height: 0;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp;   .clearfix { zoom: 1; } &#x2F;* 兼容IE6&#x2F;7 *&#x2F;</p>
+<p>&nbsp;   &#96;&#96;&#96;</p>
+<p>- <code>clear</code>：清除浮动（left&#x2F;right&#x2F;both）</p>
+<p>### 7. 弹性盒布局（Flex，主流）</p>
+<p>- 核心：给父元素设置<code>display: flex;</code>，子元素变为flex项</p>
+<p>- 父元素属性：</p>
+<p>&nbsp; - <code>flex-direction</code>：主轴方向（row&#x2F;row-reverse&#x2F;column&#x2F;column-reverse）</p>
+<p>&nbsp; - <code>justify-content</code>：主轴对齐方式（flex-start&#x2F;flex-end&#x2F;center&#x2F;space-between&#x2F;space-around&#x2F;space-evenly）</p>
+<p>&nbsp; - <code>align-items</code>：侧轴对齐方式（flex-start&#x2F;flex-end&#x2F;center&#x2F;baseline&#x2F;stretch）</p>
+<p>&nbsp; - <code>flex-wrap</code>：是否换行（nowrap&#x2F;wrap&#x2F;wrap-reverse）</p>
+<p>&nbsp; - <code>align-content</code>：多行侧轴对齐（仅换行时生效，同justify-content值）</p>
+<p>&nbsp; - <code>flex-flow</code>：复合属性（flex-direction + flex-wrap）</p>
+<p>- 子元素属性：</p>
+<p>&nbsp; - <code>flex-grow</code>：放大比例（默认0，剩余空间分配）</p>
+<p>&nbsp; - <code>flex-shrink</code>：缩小比例（默认1，空间不足时缩小）</p>
+<p>&nbsp; - <code>flex-basis</code>：默认尺寸（auto&#x2F;px&#x2F;%）</p>
+<p>&nbsp; - <code>flex</code>：复合属性（grow shrink basis，推荐用flex: 1; 等分）</p>
+<p>&nbsp; - <code>align-self</code>：单独设置自身侧轴对齐（覆盖align-items）</p>
+<p>&nbsp; - <code>order</code>：排列顺序（数值越小越靠前，默认0）</p>
+<p>- 示例（水平垂直居中）：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .container {</p>
+<p>&nbsp;   display: flex;</p>
+<p>&nbsp;   justify-content: center;</p>
+<p>&nbsp;   align-items: center;</p>
+<p>&nbsp;   width: 300px;</p>
+<p>&nbsp;   height: 300px;</p>
+<p>&nbsp;   border: 1px solid #ccc;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .item {</p>
+<p>&nbsp;   width: 100px;</p>
+<p>&nbsp;   height: 100px;</p>
+<p>&nbsp;   background: red;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>### 8. 网格布局（Grid）</p>
+<p>- 核心：二维布局（行+列），比Flex更适合复杂布局</p>
+<p>- 父元素属性：</p>
+<p>&nbsp; - <code>display: grid;</code>：设为网格容器</p>
+<p>&nbsp; - <code>grid-template-columns</code>：列宽（repeat(3, 100px) 表示3列，每列100px）</p>
+<p>&nbsp; - <code>grid-template-rows</code>：行高（同列宽）</p>
+<p>&nbsp; - <code>grid-gap</code>&#x2F;<code>gap</code>：网格间距（row-gap + column-gap）</p>
+<p>&nbsp; - <code>justify-items</code>：单元格内容水平对齐</p>
+<p>&nbsp; - <code>align-items</code>：单元格内容垂直对齐</p>
+<p>&nbsp; - <code>grid-template-areas</code>：网格区域命名</p>
+<p>- 子元素属性：</p>
+<p>&nbsp; - <code>grid-column</code>：列跨度（grid-column: 1 &#x2F; 3; 跨1-3列）</p>
+<p>&nbsp; - <code>grid-row</code>：行跨度</p>
+<p>&nbsp; - <code>grid-area</code>：指定区域&#x2F;行列跨度</p>
+<p>- 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .grid-container {</p>
+<p>&nbsp;   display: grid;</p>
+<p>&nbsp;   grid-template-columns: repeat(3, 1fr); &#x2F;* 3列等分 *&#x2F;</p>
+<p>&nbsp;   grid-gap: 10px;</p>
+<p>&nbsp;   width: 300px;</p>
+<p>&nbsp;   height: 300px;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .grid-item {</p>
+<p>&nbsp;   background: blue;</p>
+<p>&nbsp;   color: white;</p>
+<p>&nbsp;   text-align: center;</p>
+<p>&nbsp;   line-height: 90px;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>### 9. 过渡与动画</p>
+<p>- 过渡（Transition）：元素状态变化时的平滑过渡</p>
+<p>&nbsp; 语法：<code>transition: 属性 时长 过渡函数 延迟;</code></p>
+<p>&nbsp; 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .box {</p>
+<p>&nbsp;   width: 100px;</p>
+<p>&nbsp;   height: 100px;</p>
+<p>&nbsp;   background: red;</p>
+<p>&nbsp;   transition: all 0.3s ease;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .box:hover {</p>
+<p>&nbsp;   width: 200px;</p>
+<p>&nbsp;   background: blue;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>- 动画（Animation）：自定义关键帧动画</p>
+<p>&nbsp; 步骤：</p>
+<p>&nbsp; 1. 定义关键帧：<code>@keyframes 动画名 { 0% { ... } 50% { ... } 100% { ... } }</code></p>
+<p>&nbsp; 2. 应用动画：<code>animation: 动画名 时长 速度曲线 延迟 播放次数 是否反向;</code></p>
+<p>&nbsp; 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; @keyframes move {</p>
+<p>&nbsp;   0% { transform: translateX(0); }</p>
+<p>&nbsp;   100% { transform: translateX(200px); }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; .box {</p>
+<p>&nbsp;   width: 100px;</p>
+<p>&nbsp;   height: 100px;</p>
+<p>&nbsp;   background: red;</p>
+<p>&nbsp;   animation: move 2s ease infinite alternate;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>- <code>transform</code>：变换（不影响布局）</p>
+<p>&nbsp; - 平移：<code>translate(x, y)</code> &#x2F; <code>translateX(x)</code> &#x2F; <code>translateY(y)</code></p>
+<p>&nbsp; - 旋转：<code>rotate(deg)</code></p>
+<p>&nbsp; - 缩放：<code>scale(x, y)</code> &#x2F; <code>scaleX(x)</code> &#x2F; <code>scaleY(y)</code></p>
+<p>&nbsp; - 倾斜：<code>skew(deg, deg)</code></p>
+<p>### 10. 响应式布局</p>
+<p>- 核心：根据不同屏幕尺寸适配样式</p>
+<p>- 媒体查询（Media Query）：</p>
+<p>&nbsp; 语法：<code>@media 媒体类型 and (条件) { 样式 }</code></p>
+<p>&nbsp; 媒体类型：screen（屏幕）、print（打印）、all（所有）</p>
+<p>&nbsp; 条件：width、height、orientation（portrait&#x2F;landscape）</p>
+<p>&nbsp; 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; &#x2F;* 屏幕宽度小于768px时生效 *&#x2F;</p>
+<p>&nbsp; @media screen and (max-width: 768px) {</p>
+<p>&nbsp;   .container {</p>
+<p>&nbsp;     width: 100%;</p>
+<p>&nbsp;     padding: 0 10px;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#x2F;* 屏幕宽度大于1200px时生效 *&#x2F;</p>
+<p>&nbsp; @media screen and (min-width: 1200px) {</p>
+<p>&nbsp;   .container {</p>
+<p>&nbsp;     width: 1200px;</p>
+<p>&nbsp;     margin: 0 auto;</p>
+<p>&nbsp;   }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>- 视口设置（必须加）：</p>
+<p>&nbsp; <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
+<p>&nbsp; - width&#x3D;device-width：视口宽度等于设备宽度</p>
+<p>&nbsp; - initial-scale&#x3D;1.0：初始缩放比例1:1</p>
+<p>## 六、CSS 其他重要知识点</p>
+<p>### 1. 单位</p>
+<p>- 绝对单位：px（像素）、cm（厘米）、mm（毫米）、in（英寸）、pt（点）</p>
+<p>- 相对单位：</p>
+<p>&nbsp; - em：相对于父元素字体大小（如父元素16px，1em&#x3D;16px）</p>
+<p>&nbsp; - rem：相对于根元素（html）字体大小（推荐，避免嵌套问题）</p>
+<p>&nbsp; - %：相对于父元素对应属性值</p>
+<p>&nbsp; - vw：视口宽度的1%（1vw&#x3D;设备宽度&#x2F;100）</p>
+<p>&nbsp; - vh：视口高度的1%</p>
+<p>&nbsp; - vmin：vw和vh中较小值</p>
+<p>&nbsp; - vmax：vw和vh中较大值</p>
+<p>- 推荐用法：</p>
+<p>&nbsp; - 字体大小：rem</p>
+<p>&nbsp; - 布局宽度&#x2F;高度：px&#x2F;%&#x2F;vw&#x2F;vh</p>
+<p>&nbsp; - 行高：无单位（如1.5）</p>
+<p>### 2. 继承性</p>
+<p>- 可继承属性：字体、文本、颜色相关（font-*&#x2F;text-*&#x2F;color&#x2F;line-height）</p>
+<p>- 不可继承属性：盒模型、定位、背景相关（width&#x2F;height&#x2F;margin&#x2F;padding&#x2F;border&#x2F;position&#x2F;background）</p>
+<p>- 强制继承：<code>属性: inherit;</code>（如<code>border: inherit;</code>）</p>
+<p>### 3. 浏览器前缀（兼容旧浏览器）</p>
+<p>- 主流前缀：</p>
+<p>&nbsp; - -webkit-（Chrome&#x2F;Safari）</p>
+<p>&nbsp; - -moz-（Firefox）</p>
+<p>&nbsp; - -ms-（IE）</p>
+<p>&nbsp; - -o-（Opera）</p>
+<p>- 示例：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; .box {</p>
+<p>&nbsp;   -webkit-border-radius: 5px;</p>
+<p>&nbsp;   -moz-border-radius: 5px;</p>
+<p>&nbsp;   border-radius: 5px;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>### 4. 常见重置样式（Normalize.css&#x2F;Reset.css）</p>
+<p>- 目的：清除浏览器默认样式，统一跨浏览器表现</p>
+<p>- 基础重置：</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+<p>&nbsp; * {</p>
+<p>&nbsp;   margin: 0;</p>
+<p>&nbsp;   padding: 0;</p>
+<p>&nbsp;   box-sizing: border-box;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; li {</p>
+<p>&nbsp;   list-style: none;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; a {</p>
+<p>&nbsp;   text-decoration: none;</p>
+<p>&nbsp;   color: inherit;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; img {</p>
+<p>&nbsp;   display: block; &#x2F;* 去掉图片底部空白 *&#x2F;</p>
+<p>&nbsp;   max-width: 100%; &#x2F;* 响应式图片 *&#x2F;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; input, button {</p>
+<p>&nbsp;   border: none;</p>
+<p>&nbsp;   outline: none;</p>
+<p>&nbsp;   font-family: inherit;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &#96;&#96;&#96;</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># \[前端开发, CSS, 学习笔记]</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/23/css-styling-guide/" rel="prev" title="CSS3 盒模型与 Flexbox 现代布局">
+      <i class="fa fa-chevron-left"></i> CSS3 盒模型与 Flexbox 现代布局
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Miao QA"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Miao QA</p>
+  <div class="site-description" itemprop="description">Building my digital garden.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/miaoqa5-web" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;miaoqa5-web" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:miaoqa5@gmail.com" title="Email → mailto:miaoqa5@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>Email</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2025 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qian Miao</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
